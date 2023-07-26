@@ -1,6 +1,6 @@
 import { HeroInterface } from "./hero"
 
-export const HEROESMOCK: HeroInterface[] = [
+export const HEROESMOCK: Promise<HeroInterface[]> = Promise.resolve([
   { id: 12, name: 'Dr. Nice' },
   { id: 13, name: 'Bombasto' },
   { id: 14, name: 'Celeritas' },
@@ -10,4 +10,4 @@ export const HEROESMOCK: HeroInterface[] = [
   { id: 18, name: 'Dr. IQ' },
   { id: 19, name: 'Magma' },
   { id: 20, name: 'Tornado' }
-]
+])
