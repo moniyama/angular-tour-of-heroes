@@ -16,11 +16,15 @@ export class HeroDetailComponent {
   ngOnInit(): void {
     this.getHero();
   }
-  getHero() :void{
+  getHero(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));
     this.serviceHero.getHero(id)
       .subscribe(selectedHero => this.hero = selectedHero)
   }
+  goBack(): void {
+    this.location.back();
+  }
+  
   constructor(
     private route: ActivatedRoute,
     private serviceHero: HeroService,
