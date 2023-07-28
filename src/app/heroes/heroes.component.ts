@@ -10,12 +10,7 @@ import { MessageService } from '../message.service';
 })
 export class HeroesComponent implements OnInit {
   heroes: HeroInterface[] = [];
-  selectedHero?: HeroInterface
-  onSelect(hero: HeroInterface): void {
-    console.log(hero)
-    this.selectedHero = hero
-    this.serviceMessage.add(`HeroesComponent: Selected hero id=${hero.id}`);
-  }
+  
   getHeroes(): void {
     this.serviceHero.getHeroes()
       .subscribe(heroes => this.heroes = heroes);
