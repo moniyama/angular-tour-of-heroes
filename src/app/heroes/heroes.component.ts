@@ -14,9 +14,9 @@ export class HeroesComponent {
     console.log(hero)
     this.selectedHero = hero
   }
-  async getHeroes(): Promise<HeroInterface[]>  {
-    const data = await this.serviceHero.getHeroes();
-    return this.heroes = data ?? []
+  getHeroes(): void {
+    this.serviceHero.getHeroes()
+      .subscribe(heroes => this.heroes = heroes);
   }
   
   ngOnInit(): void { //on init - after constructing componente (lifecycle hook)
