@@ -23,9 +23,10 @@ export class HeroService {
     return heroes;
   }
   getHero(id: Number): Observable<HeroInterface> {
-    const hero = HEROESMOCK.find(h => h.id === id)!;
+    const url = `${this.heroesUrl}/${id}`;
+    const hero = this.fetch.get<HeroInterface>(url)
     this.messageService.add(`HeroService: fetched hero id=${id}`);
-    return of(hero);
+    return hero;
   }
   constructor(
     private fetch: HttpClient,
