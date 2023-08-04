@@ -6,6 +6,7 @@
     <input id="hero-name" [(ngModel)]="hero.name" placeholder="name">
     <!-- ngModel modifica todos os hero.name que houver, como se fosse estado -->
     <!-- tem um bind com o evento e a propriedade -->
+    <button type="button" (click)="save()">save</button>
   </div>
   <button type="button" (click)="goBack()">go back</button>
 </div>

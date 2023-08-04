@@ -28,6 +28,11 @@ export class HeroService {
     this.messageService.add(`HeroService: fetched hero id=${id}`);
     return hero;
   }
+  updateHero(hero: HeroInterface): Observable<any> {
+    const url = `${this.heroesUrl}/${hero.id}`;
+    this.messageService.add(`HeroService: update hero id=${hero.id}`);
+    return this.fetch.put(url, hero, this.httpOptions)
+  }
   constructor(
     private fetch: HttpClient,
     private messageService: MessageService,
