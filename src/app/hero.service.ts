@@ -33,6 +33,13 @@ export class HeroService {
     this.messageService.add(`HeroService: update hero id=${hero.id}`);
     return this.fetch.put(url, hero, this.httpOptions)
   }
+  addHero(hero: HeroInterface): Observable<HeroInterface>{
+    return this.fetch.post<HeroInterface>(this.heroesUrl, hero, this.httpOptions)
+  }
+  deleteHero(id: number): Observable<HeroInterface>{
+    const url = `${this.heroesUrl}/${id}`;
+    return this.fetch.delete<HeroInterface>(url, this.httpOptions)
+  }
   constructor(
     private fetch: HttpClient,
     private messageService: MessageService,
